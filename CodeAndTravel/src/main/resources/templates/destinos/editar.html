@@ -1,0 +1,76 @@
+<div th:replace="compartilhado/header"></div>
+
+  
+<br><br>
+<section class="w3l-contact" id="contact">
+  <div class="contact-infubd py-5">
+    <div class="container py-lg-3">
+    <div class="col-lg-6 contact-left">
+          <div class="partners">
+            <div class="cont-details">
+	              <h5>Editar Destino</h5>
+	              <p class="mt-3 mb-4">Não esqueça de salvar logo apos editar.
+	              </p>
+            </div>
+          </div>
+        </div>
+      <div class="contact-grids row">
+      
+      <div class="col-lg-6 mt-lg-0 mt-5 contact-right">
+          <form th:action="@{'/destinos/' + ${destino.id} + '/atualizar'}"  method="post" class="signin-form">
+          <div class="input-grids">
+             <div class="form-group">
+             	<label for="nome">Nome do Destino</label>
+                <input type="text" name="nome" id="nome" th:value="${destino.nome}"
+                placeholder="Nome Destino*" class="contact-input"  required/>
+             </div>
+             <div class="form-group">
+             	<label for="url">Imagem</label>
+                <input type="text" name="url" id="url" th:value="${destino.url}"
+                placeholder="URL da Imagem (http://...)*" class="contact-input" required />
+             </div>
+             <div class="form-group">
+             <label for="local">Local de Destino</label>
+                <input type="text" name="local" id="local" th:value="${destino.local}"
+                placeholder="Local (Cidade-Estado)*" class="contact-input"  required/>
+             </div>
+             <div class="form-group">
+             <label for="dias">Dias</label>
+                <input type="text" name="dias" id="dias" th:value="${destino.dias}"
+                placeholder="Dias (# dias, # noites)*" class="contact-input"  required/>
+             </div>
+             <div class="form-group">
+             <label for="valor">Valor</label>
+                <input type="number" name="valor" id="valor" th:value="${destino.valor}"
+                placeholder="Valor*" class="contact-input"  required/>
+             </div>
+           </div>
+           <div class="form-group">
+           <label for="descricao">Descrição</label>
+              <textarea name="descricao" id="descricao"
+              placeholder="Descrição*" required  th:inline='text'>[[${destino.descricao}]]</textarea>
+           </div>
+           
+           <div class="text-right">
+              <button class="btn btn-style btn-primary">Enviar</button>
+           </div>
+         </form>
+        </div>
+        <div class="col-md-4 col-sm-6 mt-sm-0 mt-5 grids5-info">
+          <a href="#url"><img th:src="${destino.url}" class="img-fluid" alt="Há um problema com sua imagem!!!"></a>
+          <h5>Dica!</h5>
+          <h4><a href="#url"> 
+            Adicionando imagem</a></h4>
+          <p>Ao cadastrar um novo destino, para inserir uma imagem, copie
+	              a url de uma imagem e cole no campo indicado.</p>
+        </div>
+      <div>
+      
+      
+        
+      </div>
+    </div>
+   </div>
+</section>
+
+<div th:replace="compartilhado/footer"></div>

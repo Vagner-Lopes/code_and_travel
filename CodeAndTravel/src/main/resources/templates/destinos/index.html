@@ -1,0 +1,102 @@
+<div th:replace="compartilhado/header"></div>
+
+
+  <section class="w3l-about-breadcrumb text-left">
+    <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
+      <div class="container">
+        <h2 class="title">Melhores Destinos </h2>
+        <ul class="breadcrumbs-custom-path mt-2">
+          <li><a href="/">Home</a></li>
+          <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> Destinos </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+ <section class="grids-1 py-5">
+  <div class="grids py-lg-5 py-md-4">
+      <div class="container" >
+      <div class="d-flex justify-content-between">
+      	<h3 class="hny-title mb-5 d-inline ">Destinos</h3>
+      	
+      	<a class="btn btn-info d-inline " href="/destinos/novo" style="width: 100px; height: 40px;">Novo</a>
+      </div>
+      <h4>Conheca os Melhores Destino do Brasil e do Mundo!</h4>
+      	<hr>
+          <br>
+ 
+          <div class="row">
+          
+          <div class="col-lg-4 col-md-4 col-12 col-sm-6 mt-md-0">
+                  <div class="column cards-destino">
+                      <a href="blog-single.html"><img src="https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcRanIByoDqbJpCk4vOW1LuTLMbC4D-BME5T6SysWLRB-SZvV1ERi3khjOkdH5PYgbAI5SdZmGmf0LA7ZgqR5dWc7w" alt="" class="img-fluid"></a>
+                      <div class="info">
+                          <h4><a href="blog-single.html">Jardim Botânico</a></h4>
+                          <p>Jardim Botânico-RJ</p>
+                          <p>3 Dias, 4 Noites </p>
+                          <div class="dst-btm">
+                            <h6 class="">A partir de:</h6>
+                            <h5 class='text-danger d-inline'>R$<span>1170.00</span></h5>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-12 col-sm-6 mt-md-0">
+                  <div class="column  cards-destino ">
+                      <a href="blog-single.html"><img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTQ4WWBAHU-WkRZATB8vqksQdM9FOTOAbUOjVjWfA92vW3xVe6pWcX4o92ibimKjJAmbzM5Y5qht7oVuuEj8BVsug" alt="" class="img-fluid"></a>
+                      <div class="info">
+                          <h4><a href="blog-single.html">Corcovado</a></h4>
+                          <p>Rio de Janeiro-RJ</p>
+                          <p>1 Dias, 1 Noites </p>
+                          <div class="dst-btm">
+                            <h6 class="">A partir de:</h6>
+                            <h5 class='text-danger d-inline'>R$<span>940.00</span></h5>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-12 col-sm-6 mt-md-0 mt-4">
+                  <div class="column cards-destino">
+                      <a href="blog-single.html"><img src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcQJj5HdpW7msCaro4lEefGGPhTvzCkxhslosbQOcpq1ijR0kyX7kJ56PgE9QcOVkvCdvVgSO6TYp87I_G3MzsAazg" alt="" class="img-fluid"></a>
+                      <div class="info">
+                          <h4><a href="blog-single.html">Porto de Galinhas</a></h4>
+                          <p>Ipojuca-PE</p>
+                          <p>3 Dias, 4 Noites </p>
+                          <div class="dst-btm">
+                            <h6 class="">A partir de:</h6>
+                            <h5 class='text-danger d-inline'>R$<span>2090.00</span></h5>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+          
+              <div class="col-lg-4 col-md-4 col-12 col-sm-6 mt-md-0 mt-4 " th:each="destino : ${destinos}">
+                  <div class="column  cards-destino ">
+                      <a href="promocoes" ><img th:src="${destino.url}" alt="erro na url da imagem" class="img-fluid"></a>
+                      <div class="info p-1">
+                          <a href="/promocoes"><h4 th:text="${destino.nome}"></h4></a>
+                          <p th:text="${destino.local}"> </p>
+                          <p th:text="${destino.dias}"></p>
+                          <div class="dst-btm">
+                            <h6 class="">A partir de: </h6>
+                            <div  class="row d-flex justify-content-around p-1">
+	                            <h5 class='text-danger d-inline col-9'>R$<span th:text="${destino.valor}" ></span>0</h5>
+	                            <a href="#" th:onClick="'if(confirm(\'Você quer realmente excluir este destino?\'))
+	                            window.location.href = \'' + @{/destino/{id}(id=${destino.id})} +'/excluir\''" 
+	                            class="btn btn-dark d-inline col-3 col-sm-4 m-1">Excluir</a>
+	                            
+	                            <a th:href="@{'/destinos/' + ${destino.id}}" class='btn btn-info d-inline col-3 col-sm-4 m-1'>Editar</a>
+                            </div>
+                            
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+      </div>
+	</div>
+</section>
+
+<div th:replace="compartilhado/footer"></div>
